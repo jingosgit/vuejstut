@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link 
+    rel="stylesheet" 
+    href="css/style.css">
+
+<link 
+    href="https://fonts.googleapis.com/css2?family=Khula&display=swap" 
+    rel="stylesheet"> 
+
+</head>
+<body>
+
+     <div id="root" class="container">
+      
+      <app-header 
+                title="Vue Code Cafe" 
+                body="Simple Vue Break down pages see the effect!">
+      </app-header>
+
+          <app-nav></app-nav>
+      
+          <app-content class="row"></app-content> 
+   
+      <app-footer></app-footer>
+
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="sitejs/header.js"></script>  
+<script src="sitejs/nav.js"></script>  
+<script src="sitejs/content.js"></script>  
+<script src="sitejs/footer.js"></script>  
+</body>
+</html>

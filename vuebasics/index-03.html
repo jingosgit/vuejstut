@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div id="root">
+            <ul>
+                <li 
+                    v-for="name in names" 
+                    v-text="name">
+                </li>
+            </ul>
+                
+            <input  
+                    id="input" 
+                    type="text"
+                    v-model="newName"
+            />
+            
+            <button 
+                    @click="addData">
+                    Add List Item
+            </button>
+	</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+
+<script>
+/***
+- Create an input with a v-model directive called newName
+- Create a button with @click Event. Then pass assign it a method called addData
+
+- Create an Instance of Vue and bind the top level div with an Id named root(Can be any name)
+- Create a data object
+    - Create an newName empty variable - this will be the same as the bound on input att. v-model
+    - Create an array called names and store some 4 values.
+
+- create a methods object
+    - Create an addData function
+        - This function pushes newName value to the names array created
+        - Then it makes v-model bound by newName input field empty
+    
+***/
+    
+	new Vue({
+        el:'#root',
+        
+		data : {
+            newName:'',
+            names: ['Joe','Mary','Jane','Jack']
+        },
+
+        methods :{
+           addData() {
+               this.names.push(this.newName);
+               this.newName = '';
+           } 
+        }
+	});
+
+</script>	
+
+</body>
+</html>

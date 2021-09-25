@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<link 
+		rel="stylesheet" 
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link 
+		href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" 
+		rel="stylesheet"> 
+		<style type="text/css" media="all">
+
+			body{
+				font-family: 'Dosis', sans-serif;
+			}
+
+			.shadowBox{
+				border:1px solid #dedede;
+			}
+			
+		</style>
+</head>
+<body>
+	<div id="root" class="row m-5">
+
+			<div class="col-md-4 m-3 shadow-sm shadowBox">
+						
+				<h2>Worklog</h2>
+				<ul>
+
+					<li 
+						v-for="task in tasks"  
+						v-text="task.summary">
+			        </li>
+				</ul>
+
+			</div>
+
+			<div class="col-md-4 m-3 shadow-sm shadowBox">
+				<h2>To do List</h2>
+				<ul>
+					<li v-for="task in incompleteTasks"  v-text="task.summary"></li>
+				</ul>
+			</div>
+		
+	</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+
+<script>
+
+	let app = new Vue({
+						el:'#root',
+						data : {
+							tasks: [
+										{ summary:'Go to the Shop', completed:true },
+										{ summary:'Go to the Market', completed:false },
+										{ summary:'Give Cats Milk', completed:false },
+										{ summary:'Take a long walk', completed:true },
+										{ summary:'Go buy super', completed:true },
+							]
+						},
+
+						computed:{
+							incompleteTasks() {
+
+								return this.tasks.filter(task => ! task.completed);
+
+							}
+						}
+					});
+
+</script>	
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+
+</body>
+</html>
